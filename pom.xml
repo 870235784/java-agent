@@ -4,6 +4,15 @@
   <artifactId>java-agent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <dependencies>
+  	<dependency>
+    	<groupId>javassist</groupId>
+    	<artifactId>javassist</artifactId>              
+    	<version>3.12.1.GA</version>
+    	<type>jar</type>
+ 	</dependency>
+  </dependencies>
+  
   <build>
   		<finalName>java-agent</finalName>
 		<!-- 所有子项目都需要 -->
@@ -44,6 +53,25 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin> 
+  			  <groupId>org.apache.maven.plugins</groupId>  
+			  <artifactId>maven-shade-plugin</artifactId>  
+			  <executions> 
+			    <execution> 
+			      <phase>package</phase>  
+			      <goals> 
+			        <goal>shade</goal> 
+			      </goals> 
+			    </execution> 
+			  </executions>  
+			  <configuration> 
+			    <artifactSet> 
+			      <includes> 
+			        <include>javassist:javassist:jar:</include> 
+			      </includes> 
+			    </artifactSet> 
+			  </configuration> 
+			</plugin>
 		</plugins>
 	</build>
 </project>
