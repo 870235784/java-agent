@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Premain-Class: com.tca.agent.MyAgent
+Main-Class: com.tca.agent.MyAgentTest
+Can-Redefine-Classes: true
